@@ -23,7 +23,7 @@ export default function AddPatientModal({
 }) {
   const [tab, setTab] = useState<"NEW" | "EXISTING">("NEW");
 
-  // New patient fields
+  // New patient 
   const [name, setName] = useState("");
   const [mobileNumber, setMobileNumber] = useState("");
   const [whatsappNumber, setWhatsappNumber] = useState("");
@@ -31,12 +31,12 @@ export default function AddPatientModal({
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
 
-  // Existing patient search
+  // Existing patient search 
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<Patient[]>([]);
   const [loading, setLoading] = useState(false);
 
-  // When checkbox is ON, keep whatsapp same
+  
   useEffect(() => {
     if (sameAsMobile) {
       setWhatsappNumber(mobileNumber);
@@ -103,11 +103,11 @@ export default function AddPatientModal({
     }
   }
 
-  // auto search when user types
+
   useEffect(() => {
     if (tab !== "EXISTING") return;
 
-    // If query is empty -> fetch default patients list
+   
     if (!query.trim()) {
       searchPatients("");
       return;

@@ -1,5 +1,5 @@
 export async function getDashboardData() {
-  const res = await fetch(`http://localhost:3000/api/dashboard`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL?/api/dashboard}`, {
     cache: "no-store",
   });
 

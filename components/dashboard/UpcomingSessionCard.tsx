@@ -75,7 +75,7 @@ export default function UpcomingSessionCard({ sessions }: UpcomingSessionCardPro
           onDragEnd={(_, info) => {
             if (sortedSessions.length <= 1) return;
 
-            // Swipe threshold
+            // Swipe 
             if (info.offset.x < -60) {
               // next
               setIndex((prev) => (prev + 1) % sortedSessions.length);
