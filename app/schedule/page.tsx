@@ -7,7 +7,7 @@ export default function SchedulePage() {
     <div className="min-h-screen w-full bg-linear-to-b from-[#dfdafba9] to-[#F9CCC5]/90">
       
       {/* Centered Container */}
-      <div className="mx-auto w-full max-w-[454px]">
+      <div className="mx-auto w-full max-w-113.5">
         
         <div className="flex items-center gap-2 px-4 pt-6 py-2">
           <Link href="/doctors" className="text-white/90">
