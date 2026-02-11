@@ -5,7 +5,6 @@ import Link from "next/link";
 import { getDashboardData } from "@/lib/dashboard";
 import { CiFilter } from "react-icons/ci";
 import Image from "next/image";
-export const revalidate = 10;
 
 export default async function HomePage() {
   const { upcomingSessions, pastSessions } = await getDashboardData();
