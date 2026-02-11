@@ -5,10 +5,11 @@ import Link from "next/link";
 import { getDashboardData } from "@/lib/dashboard";
 import { CiFilter } from "react-icons/ci";
 import Image from "next/image";
+export const revalidate = 10;
 
 export default async function HomePage() {
   const { upcomingSessions, pastSessions } = await getDashboardData();
-  console.log(upcomingSessions, pastSessions)
+  
   return (
     <AppShell>
       <div className="bg-linear-to-r from-[#a79cff] to-[#ffb0b0] w-full px-4 pt-6 pb-3 rounded-b-lg">
@@ -78,7 +79,7 @@ export default async function HomePage() {
         </div>
       </div>
 
-      <div className="px-4 fixed bottom-5 w-full">
+      <div className="px-4 fixed bottom-5 left-0 right-0 w-full">
         <Link
           href="/doctors"
           className="block w-full rounded-md bg-linear-to-r from-[#a79cff] to-[#ffb0b0] px-4 py-3 text-center font-medium text-white shadow-lg"

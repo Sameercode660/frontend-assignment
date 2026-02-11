@@ -2,8 +2,15 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import SelectTimeSlotModal from "./SelectTimeSlotModal";
-import AddPatientModal from "./AddPatientModal";
+import dynamic from "next/dynamic";
+
+const SelectTimeSlotModal = dynamic(() => import("./SelectTimeSlotModal"), {
+  ssr: false,
+});
+
+const AddPatientModal = dynamic(() => import("./AddPatientModal"), {
+  ssr: false,
+});
 import { BsStopwatch } from "react-icons/bs";
 import Image from "next/image";
 import {

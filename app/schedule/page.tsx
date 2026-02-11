@@ -1,4 +1,3 @@
-import AppShell from "@/components/layout/AppShell";
 import ScheduleSessionForm from "@/components/schedule/ScheduleSessionForm";
 import Link from "next/link";
 import { FaChevronLeft } from "react-icons/fa";
