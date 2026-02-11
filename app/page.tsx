@@ -53,10 +53,10 @@ export default async function HomePage() {
         )}
       </div>
 
-      <div className="px-4 py-3" >
+      <div className="px-4 py-3 pb-20" >
         <h2 className="mb-2 text-sm font-medium text-black/70">Past Sessions</h2>
 
-        <div className="space-y-3">
+        <div className="space-y-3 over">
           {pastSessions.length > 0 ? (
             pastSessions.map((s: any) => (
               <PastSessionCard
@@ -78,7 +78,7 @@ export default async function HomePage() {
         </div>
       </div>
 
-      <div className="px-4 absolute bottom-5 w-full">
+      <div className="px-4 fixed bottom-5 w-full">
         <Link
           href="/doctors"
           className="block w-full rounded-md bg-linear-to-r from-[#a79cff] to-[#ffb0b0] px-4 py-3 text-center font-medium text-white shadow-lg"

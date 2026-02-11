@@ -5,6 +5,14 @@ import { motion } from "framer-motion";
 import SelectTimeSlotModal from "./SelectTimeSlotModal";
 import AddPatientModal from "./AddPatientModal";
 import { BsStopwatch } from "react-icons/bs";
+import Image from "next/image";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 
 type SessionMode = "IN_PERSON" | "ONLINE";
@@ -142,7 +150,13 @@ export default function ScheduleSessionForm() {
         <div>
           <p className="mb-2 text-sm text-black/50">Assign Practitioner</p>
           <div className="flex items-center gap-3 rounded-md bg-[#FFFFFF80] p-3 backdrop-blur">
-            <div className="h-10 w-10 rounded-full bg-black/10" />
+            <Image
+              src={'/images/img6.png'}
+              alt="Profile"
+              width={40}
+              height={40}
+              className="h-10 w-10 rounded-full object-cover ring-2 ring-white/70 shadow-sm"
+            />
             <div className="flex-1">
               <p className="text-sm font-medium text-black">Saria Dilon</p>
               <p className="text-xs text-black/40">+91 9876543210</p>
@@ -153,46 +167,55 @@ export default function ScheduleSessionForm() {
         {/* Session Type */}
         <p className="mb-2 text-sm text-black/50">Session Type</p>
 
-        <div className="flex h-11 items-center rounded-md bg-[#FFFFFF] px-3 backdrop-blur">
-          <select
-            value={sessionType}
-            onChange={(e) => setSessionType(e.target.value)}
-            className="w-full bg-transparent text-sm outline-none text-black/70"
-          >
-            <option value="Counselling">Counselling (1 hour)</option>
-            <option value="Therapy">Therapy</option>
-            <option value="Consultation">Consultation</option>
-          </select>
-        </div>
+        <Select value={sessionType} onValueChange={setSessionType}>
+          <SelectTrigger className=" w-full h-11 rounded-md bg-white px-3 text-sm text-black/70 shadow-none border border-black/10 focus:ring-0">
+            <SelectValue placeholder="Select session type" />
+          </SelectTrigger>
+
+          <SelectContent className="rounded-md border border-black/10 bg-white">
+            <SelectItem value="Counselling">Counselling (1 hour)</SelectItem>
+            <SelectItem value="Therapy">Therapy</SelectItem>
+            <SelectItem value="Consultation">Consultation</SelectItem>
+          </SelectContent>
+        </Select>
 
         {/* Session Mode */}
         <div>
           <p className="mb-2 text-sm text-black/50">Session Mode</p>
 
-          <div className="flex items-center gap-6">
-            <label className="flex items-center gap-2 text-sm font-medium text-black/80">
+          <div className="flex items-center gap-10">
+            {/* In-Person */}
+            <label className="flex cursor-pointer items-center gap-3 text-sm font-medium text-black/80">
               <input
                 type="radio"
                 name="mode"
                 checked={sessionMode === "IN_PERSON"}
                 onChange={() => setSessionMode("IN_PERSON")}
-                className="h-4 w-4 accent-black"
+                className="peer hidden"
               />
+
+              <span className="relative h-5 w-5 rounded-full border border-black/30 bg-transparent peer-checked:border-black peer-checked:after:content-[''] peer-checked:after:absolute peer-checked:after:left-1/2 peer-checked:after:top-1/2 peer-checked:after:h-2.5 peer-checked:after:w-2.5 peer-checked:after:-translate-x-1/2 peer-checked:after:-translate-y-1/2 peer-checked:after:rounded-full peer-checked:after:bg-black" />
+
               In-Person
             </label>
 
-            <label className="flex items-center gap-2 text-sm font-medium text-black/80">
+            {/* Online */}
+            <label className="flex cursor-pointer items-center gap-3 text-sm font-medium text-black/80">
               <input
                 type="radio"
                 name="mode"
                 checked={sessionMode === "ONLINE"}
                 onChange={() => setSessionMode("ONLINE")}
-                className="h-4 w-4 accent-black"
+                className="peer hidden"
               />
+
+              <span className="relative h-5 w-5 rounded-full border-2 border-black/30 bg-transparent peer-checked:border-black peer-checked:after:content-[''] peer-checked:after:absolute peer-checked:after:left-1/2 peer-checked:after:top-1/2 peer-checked:after:h-2.5 peer-checked:after:w-2.5 peer-checked:after:-translate-x-1/2 peer-checked:after:-translate-y-1/2 peer-checked:after:rounded-full peer-checked:after:bg-black" />
+
               Online
             </label>
           </div>
         </div>
+
 
         {/* Date + Time Slot */}
         <div className="grid grid-cols-2 gap-3">

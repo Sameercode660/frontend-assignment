@@ -5,7 +5,7 @@ import { FaChevronLeft } from "react-icons/fa";
 
 export default function SchedulePage() {
   return (
-    <AppShell>
+    <div className="min-h-screen w-full bg-linear-to-b from-[#dfdafba9] to-[#F9CCC5]/90">
       <div className="flex items-center gap-2 px-4 pt-6 py-2">
         <Link href="/doctors" className="text-white/90 ">
             <FaChevronLeft color="black" size={20}/>
@@ -16,6 +16,6 @@ export default function SchedulePage() {
       <div className="mt-4">
         <ScheduleSessionForm />
       </div>
-    </AppShell>
+    </div>
   );
 }
