@@ -91,6 +91,7 @@ export default function DoctorsPage() {
             phone={doc.phone}
             specialist={doc.specialist}
             imageUrl={doc.imageUrl}
+            sessionMode="In-person & online"
             fee="1500"
             expanded={doc.expanded}
           />
